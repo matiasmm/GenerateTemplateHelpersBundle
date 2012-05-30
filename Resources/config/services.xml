@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <!-- http://symfony.com/doc/2.0/cookbook/bundles/extension.html 
+        Refernecia a las variables del kernel
+    -->
+    <parameters>
+        <parameter key="generate_template_helpers.class">Matubaum\GenerateTemplateHelpersBundle\Handler</parameter>
+        <parameter key="generate_template_helpers.dir_target">%kernel.root_dir%/../web/templates/target</parameter>
+        <parameter key="generate_template_helpers.engine_par">%generate_template_helpers.engine%</parameter>
+    </parameters>
+
+    <services>
+        <service id="templating.helper.special_comments" class="%generate_template_helpers.class%">
+            <tag name="templating.helper" alias="sc" />
+            <argument>%generate_template_helpers.dir_target%</argument>
+            <argument>%generate_template_helpers.engine_par%</argument>
+        </service>
+    </services>
+    
+</container>
