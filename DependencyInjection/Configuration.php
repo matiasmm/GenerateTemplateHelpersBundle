@@ -16,10 +16,15 @@ class Configuration implements ConfigurationInterface{
      */
     public function getConfigTreeBuilder()
     {
+  
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('generate_template_helpers');
-        $rootNode->children()
-                ->scalarNode("engine");
+        $rootNode = $treeBuilder->root('generated_template_helpers');
+        $rootNode
+            ->children()
+                ->scalarNode("engine")
+                    ->defaultValue('twig')
+                ->end()
+           ->end();
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for

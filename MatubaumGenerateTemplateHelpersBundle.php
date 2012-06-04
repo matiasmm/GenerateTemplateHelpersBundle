@@ -9,10 +9,11 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class MatubaumGenerateTemplateHelpersBundle extends Bundle
 {
+    
     public function build(ContainerBuilder $container)
     {
         parent::build($container);
-        $container->registerExtension(new DependencyInjection\GenerateTemplateHelpersExtension());
+        $container->registerExtension(new DependencyInjection\MatubaumGenerateTemplateHelpersExtension());
     }
     
 }
