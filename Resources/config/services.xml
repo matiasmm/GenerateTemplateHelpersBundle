@@ -26,6 +26,9 @@
             <tag name="twig.extension" />
             <argument>%generate_template_helpers.dir_target%</argument>
             <argument>%generate_template_helpers.engine_par%</argument>
+            <call method="setEnvironment">
+                <argument >twig.environment</argument>
+            </call>
         </service>
         
     </services>
